@@ -1,0 +1,21 @@
+<div class="legende">
+    <span style="position:absolute;left:65px;">ID</span>
+    <span style="position:absolute;left:90px;">Intitulé</span>
+    <span style="position:absolute;left:215px;">Montant</span>
+    <span style="position:absolute;left:275px;">Devise</span>
+    <span style="position:absolute;left:415px;">Date</span>
+</div>
+<ul class="notes">
+  <li *ngFor="let note of notes" [class.selected]="note === selectedNote" (click)=onSelect(note)>
+      <div class="ligne">
+        <span class="badge">{{note.id}} </span>
+        <span class="intitule">{{note.intitule}} </span>
+        <span class="montant">{{note.montant}} </span>
+        <span class="devise">{{note.devise}} </span>
+        <span class="date">{{note.date}} </span>
+        <button class="delete" title="delete note" (click)="delete(note)">x</button>
+      </div>
+      <div *ngIf="note===selectedNote" class="commentaire">{{note.commentaire}}</div>
+  </li>
+</ul>
+

@@ -1,0 +1,108 @@
+.notes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+}
+.notes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    margin: .5em;
+    margin-left:50px;
+    padding: .3em 0;
+    border-radius: 5px;
+    width:500px;
+}
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+.notes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+}
+.notes li:hover {
+    color: #607D8B;
+    background-color: black;
+    left: .1em;
+}
+.notes .text {
+    position: relative;
+    top: -3px;
+}
+.notes .badge {
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    height: 24px;
+    border-radius: 4px;
+    margin:0 2px 0 2px;
+  }
+.intitule{
+    border-left:1px solid rgb(195, 215, 224);
+    padding-left:5px;
+    height:35px;
+    width:120px;
+    line-height:35px;
+    background-color: rgb(133, 163, 184);
+    border-radius: 4px 0 0 4px;
+}
+.montant{
+    border-left:1px solid rgb(195, 215, 224);
+    padding-left:5px;
+    height:35px;
+    width:60px;
+    line-height:35px;
+    background-color: rgb(133, 163, 184);
+}
+.devise{
+    border-left:1px solid rgb(195, 215, 224);
+    padding-left:5px;
+    height:35px;
+    width:70px;
+    line-height:35px;
+    background-color: rgb(133, 163, 184);
+}
+.date{
+    border-left:1px solid rgb(195, 215, 224);
+    padding-left:5px;
+    height:35px;
+    width:80px;
+    line-height:35px;
+    background-color: rgb(133, 163, 184);
+    border-radius: 0 4px 4px 0;
+}
+.commentaire{
+    font-size:30px;
+}
+.ligne{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.ligne:hover{
+    left:0.1em;
+}
+.legende{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height:20px;
+}
+button {
+    background-color: #eee;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+}
+button.delete
+{
+    background-color: rgb(136, 12, 12) !important;
+    color: white;
+    margin:0 2px 0 2px;
+}
