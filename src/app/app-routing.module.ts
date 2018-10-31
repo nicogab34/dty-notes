@@ -1,12 +1,12 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotesComponent }      from './notes/notes.component';
-import { IdentificationComponent }  from './identification/identification.component';
+import { EspaceTravailComponent } from './espace-travail/espace-travail.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
  
 const routes: Routes = [
-  { path: '', redirectTo: '/identification', pathMatch: 'full' },
-  { path: 'identification', component: IdentificationComponent },
-  { path: 'notes', component: NotesComponent }
+  { path: '', component: LoginComponent },
+  { path: 'espace-travail', component: EspaceTravailComponent, canActivate: [AuthGuardService] },
 ];
  
 @NgModule({

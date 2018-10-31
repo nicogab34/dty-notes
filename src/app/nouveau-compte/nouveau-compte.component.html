@@ -1,0 +1,18 @@
+<div class="mainbloc" id="nouveaucompte">
+        <div class = "head">
+            <h2>Nouveau compte</h2>
+            <button [class.affiche]="!affiche && largeurecran < 700" [class.masque]="affiche" (click)="changeaffiche()"></button>
+        </div>
+      <form *ngIf="affiche || largeurecran > 700" class="formulaire" (submit)="register()">
+          <select [(ngModel)]="credentials.profile" name="profile" class="form-control">
+            <option *ngFor="let profile of profiles" [ngValue]=profile>{{profile}}</option>
+          </select>
+          <input type="text" class="form-control" name="name" placeholder="Nom" [(ngModel)]="credentials.name">
+          <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="credentials.email">
+          <input type="password" class="form-control" name="password" placeholder="Mot de Passe" [(ngModel)]="credentials.password">
+          <select [(ngModel)]="credentials.gestionnaireID" name="gestionnaire" class="form-control">
+            <option *ngFor="let gestionnaire of gestionnaires" [ngValue]=gestionnaire._id>{{gestionnaire.name}}</option>
+          </select>
+        <button type="submit" class="boutonsdetails" id="ajoutercompte">Ajouter le compte</button>
+      </form>
+  </div>

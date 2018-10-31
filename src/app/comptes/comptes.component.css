@@ -1,0 +1,58 @@
+#listecomptes{
+    width:98%;
+}
+#supprimer{
+    background-color: rgb(119, 0, 0);
+    padding:7px 11px;
+    text-align: center;
+    margin-left:3px;
+}
+.users {
+    margin: 0 0 0.5em 0;
+    list-style-type: none;
+    padding: 0;
+}
+.user li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    margin: .5em;
+    padding: 0 0;
+}
+#donnees{
+    width:100%;
+    margin:3px;
+    display:flex;
+    flex-direction:row;
+    overflow-x: hidden;
+}
+#donnees:hover {
+    color: #607D8B;
+    left: .1em;
+}
+.etat{
+    background-size:30px auto;
+    background-repeat: no-repeat;
+    width:40px;
+    height:30px;
+}
+.notes .text {
+    position: relative;
+    top: -3px;
+}
+.attributscompte{
+    border:1px solid rgb(195, 215, 224);
+    padding:auto;
+    padding-left:5px;
+    height:30px;
+    line-height: 30px;
+}
+#nom{
+    width:29%;
+}
+#email{
+    width:34%;
+}
+#profil{
+    width:24%;
+}

@@ -1,0 +1,27 @@
+<div class = "appmessages">
+  <div class = "head">
+      <h2>Messagerie</h2>
+      <button [class.affiche]="!affichemessages && largeurecran < 700" [class.masque]="affichemessages" (click)="changeaffichemessages()"></button>
+  </div>
+  <div *ngIf="affichemessages || largeurecran > 700" class = "content">
+    <div class="listeutilisateurs">
+      <ul>
+        <li *ngFor="let utilisateur of utilisateurs" (click)=selectconvgest(utilisateur._id) class="utilisateurs">{{utilisateur.name}}</li>
+      </ul>
+    </div>
+    <div *ngIf="!selectedconv"class="aselectionner">
+      Veuillez sélectionner la conversation à afficher
+    </div>
+    <div *ngIf="selectedconv" [class.udiscussion]="details.profile==='Utilisateur'" [class.gdiscussion]="details.profile==='Gestionnaire'">
+        <div class="listemessages">
+          <ul>
+            <li *ngFor="let message of selectedconv" [class.envoye]="details._id===message.emetteurID" [class.recu]="details._id===message.destinataireID">{{message.contenu}}</li>
+          </ul>
+        </div>
+        <div class="nouveaumessage">
+          <input type="text" class="form-control" name="contenu" placeholder="Nouveau message" [(ngModel)]="contenu">
+          <button type="submit" class="send" (click)="nouveaumessage()"></button>
+        </div>
+    </div>
+  </div>
+</div>

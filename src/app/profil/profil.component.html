@@ -1,0 +1,14 @@
+<div class="mainbloc" id="profile">
+  <div class="head">
+    <h2>Votre profil</h2>
+    <button [class.affiche]="!afficheprofil && largeurecran < 700" [class.masque]="afficheprofil" (click)="changeafficheprofil()"></button>
+  </div>
+  <div *ngIf="afficheprofil || largeurecran > 700" class="pro">
+    <div>
+      Nom complet : {{details?.name}}<br/>
+      Adresse email : {{details?.email}}<br/>
+      Profil : {{details?.profile}}
+    </div>
+    <button *ngIf="auth.isLoggedIn()" class="deconnexion" (click)="auth.logout()"></button>
+  </div>
+</div>

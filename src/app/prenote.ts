@@ -1,12 +1,11 @@
-export class Note {
-  _id: string;
+export class preNote {
   date: string;
   intitule: string;
   montant: number;
   devise: string;
   commentaire: string;
   emetteur: string;
-  emetteurID : string;
+  emetteurID: string;
   gestionnaire: string;
   etat:string;
   commentairegestion:string;

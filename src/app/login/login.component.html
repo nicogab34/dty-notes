@@ -1,0 +1,21 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+  <div class="row">
+    <div class="identification">
+      <h1 class="form-signin-heading">Identifiez-vous</h1>
+      <form (submit)="login()" class="form">
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" [formControl]="password" [type]="hide ? 'password' : 'text'">
+          </mat-form-field>
+        <button class="boutonvalider" type="submit" >Valider</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

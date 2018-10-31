@@ -1,0 +1,101 @@
+.appmessages{
+    width:99%;
+    background-color:rgb(240, 240, 240);
+    border: 2px rgb(165, 165, 165) solid;
+    border-radius:7px;
+}
+.content{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items: flex-start;
+}
+.listeutilisateurs{
+    width:25%;
+}
+.utilisateurs{
+    width:60%;
+    margin:0;
+    padding:10% 0 10% 30%;
+    list-style-type: none;
+    border-top:solid 1px rgb(165, 165, 165);
+    border-right:solid 1px  rgb(165, 165, 165);
+}
+.utilisateurs:hover{
+    background-color: rgb(200,200,200)
+}
+.nouveaumessage{
+    color:black;
+    margin-top:2%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+input{
+    width:80%;
+    height: 20px;
+}
+.send{
+    width:30px;
+    height:30px;
+    background-image: url('../images/send.png');
+    background-repeat: no-repeat;
+    background-size:30px auto;
+}
+.gdiscussion{
+    width:65%;
+}
+.udiscussion{
+    width:100%;
+}
+ul{
+    padding:0;
+}
+.listemessages{
+    max-height:200px;
+    overflow-y: scroll;
+    width:100%;
+}
+.envoye{
+    list-style-type: none;
+    padding:5px;
+    width:80%;
+    margin:5px 0;
+    background-color: forestgreen;
+    border-radius: 5px;
+}
+.recu{
+    list-style-type: none;
+    padding:5px;
+    width:80%;
+    margin:5px 0 5px 10%;
+    background-color: lemonchiffon;
+    border-radius: 5px;
+}
+.aselectionner{
+    padding:5px;
+    border:2px solid black;
+    width:35%;
+    margin:auto 15%;
+}
+.affiche{
+    background-image: url("../images/flechebas.png");
+    background-repeat: no-repeat;
+    background-size:auto 40px;
+    width:40px;
+    height:40px;
+}
+.masque{
+    background-image: url("../images/flechehaut.png");
+    background-repeat: no-repeat;
+    background-size:auto 40px;
+    width:40px;
+    height:40px;
+}
+.head{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+}

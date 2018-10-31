@@ -1,0 +1,55 @@
+@media only screen and (max-width: 400px) {
+    .identification{
+        width:96%;
+        height:370px;
+        background-color: rgb(242, 242, 242);
+        margin:50px auto;
+        border: 2px solid rgb(185, 185, 185);
+        border-radius:9px;
+        padding:10px;
+    }
+}
+@media only screen and (min-width: 400px) {
+    .identification{
+        width:384px;
+        height:370px;
+        background-color: rgb(242, 242, 242);
+        margin:50px auto;
+        border: 2px solid rgb(185, 185, 185);
+        border-radius:9px;
+        padding:10px;
+    }
+}
+input{
+    width:90%;
+    margin:10px auto;
+    height:25px;
+    border-radius:3px;
+    font-size: 18px;
+    padding: 0 15px;
+}
+h1{
+    text-align:center;
+}
+.form{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    margin:auto;
+    margin-top:10px;
+    width:100%;
+}
+button.boutonvalider{
+    width:240px;
+    height:35px;
+    background-color: rgb(76, 160, 216);
+    border:0px solid;
+    border-radius:5px;
+    color:white;
+    font-size: 18px;
+    margin:70px auto 10px;
+    padding: 0 15px;
+}
+button.boutonvalider:hover {
+    background-color: rgb(29, 110, 165);
+}

@@ -1,0 +1,30 @@
+<div class="mainbloc" id="listecomptes">
+    <div class = "head">
+        <h2>Liste des comptes</h2>
+        <button [class.affiche]="!affiche && largeurecran < 700" [class.masque]="affiche" (click)="changeaffiche()"></button>
+    </div>
+    <div *ngIf="affiche || largeurecran > 700">
+        <div>
+            <h3>Recherche avancée</h3>
+            <div class = "params">
+              <input class="com" type = "text" [(ngModel)]="nom" placeholder="Recheche par nom" >
+              <input class="com" [(ngModel)]="email" placeholder="Recherche par email" >
+              <select class="com" [(ngModel)]="profil" name="profil">
+                  <option style="color:gray" [ngValue]=undefined disabled> Recherche par profil</option>
+                  <option style="color:gray" [ngValue]=undefined> Tous profils</option>
+                  <option *ngFor="let profil of profils" [ngValue]=profil>{{profil}}</option>
+              </select>
+            </div>
+        </div>
+          <ul class="users">
+            <li *ngFor="let user of users" >
+              <div id="donnees" *ngIf="(nom === undefined || user.name.includes(nom)) && (email === undefined || user.email.includes(email)) && (profil === undefined || user.profile.includes(profil))"> 
+                  <div class=attributscompte id="nom">{{user.name}} </div>
+                  <div class=attributscompte id="email">{{user.email}} </div>
+                  <div class=attributscompte id="profil">{{user.profile}} </div>
+                  <button id="supprimer" title="delete user" (click)="delete(user)">x</button>
+                </div>
+            </li>
+          </ul>
+    </div>
+</div>

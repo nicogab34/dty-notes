@@ -1,0 +1,9 @@
+<div class = "page">
+  <div class="b1">
+    <app-profil></app-profil>
+    <app-messages *ngIf="(details)?.profile != 'Administrateur'"></app-messages>
+    <app-nouveau-compte *ngIf="(details)?.profile === 'Administrateur'"></app-nouveau-compte>
+  </div>
+  <app-notes *ngIf="details.profile != 'Administrateur'" class="listes"></app-notes>
+  <app-comptes *ngIf="details.profile === 'Administrateur'" class="listes"></app-comptes>
+</div>

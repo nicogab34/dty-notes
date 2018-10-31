@@ -1,21 +1,87 @@
-<div class="legende">
-    <span style="position:absolute;left:65px;">ID</span>
-    <span style="position:absolute;left:90px;">Intitulé</span>
-    <span style="position:absolute;left:215px;">Montant</span>
-    <span style="position:absolute;left:275px;">Devise</span>
-    <span style="position:absolute;left:415px;">Date</span>
-</div>
-<ul class="notes">
-  <li *ngFor="let note of notes" [class.selected]="note === selectedNote" (click)=onSelect(note)>
-      <div class="ligne">
-        <span class="badge">{{note.id}} </span>
-        <span class="intitule">{{note.intitule}} </span>
-        <span class="montant">{{note.montant}} </span>
-        <span class="devise">{{note.devise}} </span>
-        <span class="date">{{note.date}} </span>
-        <button class="delete" title="delete note" (click)="delete(note)">x</button>
+<div class="mainbloc" id="notes-de-frais" *ngIf="!selectedNote && !nouvellenote">
+  <div class="head">
+    <h2>Notes de frais</h2>
+    <button [class.affiche]="!affichenotes && largeurecran < 700" [class.masque]="affichenotes" (click)="changeaffichenotes()"></button>
+  </div>
+  <div *ngIf="affichenotes || largeurecran > 700">
+    <div class="rechercheavancee">
+      <h3>Recherche avancée</h3>
+      <div class="params">
+        <input type = "text" [(ngModel)]="rdate" placeholder="Date" class="com">
+        <input [(ngModel)]="rintitule" placeholder="Intitulé" class="com">
+        <input [(ngModel)]="remetteur" placeholder="Emetteur" class="com">
+        <input type = "number" [(ngModel)]="rmontant" placeholder="Montant" class="com">
       </div>
-      <div *ngIf="note===selectedNote" class="commentaire">{{note.commentaire}}</div>
-  </li>
-</ul>
+    </div>
+    <ul class="notes">
+      <li *ngFor="let note of notes" >
+        <div style="display:flex;flex-direction: row;align-items:center;justify-content: flex-start;" *ngIf="(remetteur === undefined || note.emetteur.includes(remetteur)) && (rintitule === undefined || note.intitule.includes(rintitule)) && (rmontant === undefined || note.montant === rmontant) && (rdate === undefined || note.date.includes(rdate))" [class.selected]="note === selectedNote" > 
+          <div id="donnees" (click)=selectnote(note)>
+            <div class="etat" id="{{note.etat}}"></div>
+            <div class="attributsnote" id="emetteur">{{note.emetteur}}</div>
+            <div class="attributsnote" id="intitule">{{note.intitule}}</div>
+            <div class="attributsnote" id="montant">{{note.montant}}</div>
+            <div class="attributsnote" id="devise">{{note.devise}}</div>
+            <div class="attributsnote" id="date">{{note.date}}</div>
+          </div>
+        </div> 
+      </li>
+      <li *ngIf="details.profile==='Utilisateur'">
+        <button (click)=changenouvellenote() class="nouvellenote">Nouvelle note</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="mainbloc" id="details" *ngIf="selectedNote">
+  <div class="head">
+    <h2>Détails</h2>
+    <div class="boutons">
+      <button class="back" (click)="retour()"></button>
+      <button [class.affiche]="!affichenotes && largeurecran < 700" [class.masque]="affichenotes" (click)="changeaffichenotes()"></button>
+    </div>
+  </div>
+  <div *ngIf="affichenotes || largeurecran > 700">
+    <div *ngIf="details.profile==='Gestionnaire'">
+      <div style="font-weight:bold">Intitulé : {{selectedNote.intitule}}</div>
+      <div>Date : {{selectedNote.date}}</div>
+      <div>Emetteur : {{selectedNote.emetteur}}</div>
+      <div><span>Montant : {{selectedNote.montant}}</span><span style="margin-left:10%">Devise : {{selectedNote.devise}}</span></div>
+      <div>Commentaire : {{selectedNote.commentaire}}</div>
+    </div>
+    <div *ngIf="details.profile==='Utilisateur'">
+      <form *ngIf="affichenotes || largeurecran > 700">
+        <input style="font-weight:bold" placeholder="Intitulé" [(ngModel)]="selectedNote.intitule" name="intitule">
+        <input placeholder="Date" [(ngModel)]="selectedNote.date" name="date">
+        <input placeholder="Montant" [(ngModel)]="selectedNote.montant" name="montant">
+        <input placeholder="Devise" [(ngModel)]="selectedNote.devise" name="devise">
+        <input placeholder="Commentaire" [(ngModel)]="selectedNote.commentaire" name="commentaire">
+      </form>
+    </div>
+    <div class="decision">
+      <button *ngIf="details.profile==='Gestionnaire'" (click)="valider()" class ="boutonsdetails" id="valider">Valider</button>
+      <button *ngIf="details.profile==='Gestionnaire'" (click)="refuser()" class ="boutonsdetails" id="refuser">Refuser</button>
+      <button *ngIf="details.profile==='Utilisateur'" (click)="maj()" class ="boutonsdetails" id="maj">Mettre à jour</button>
+      <button *ngIf="details.profile==='Utilisateur'" (click)="delete(selectedNote)" class ="boutonsdetails" id="supprimer">Supprimer</button>        
+    </div>
+  </div>
+</div>
 
+<div class="mainbloc" id="details" *ngIf="nouvellenote">
+  <div class="head">
+    <h2>Nouvelle note</h2>
+    <div class="boutons">
+      <button class="back" (click)="retour()"></button>
+      <button [class.affiche]="!affichenotes && largeurecran < 700" [class.masque]="affichenotes" (click)="changeaffichenotes()"></button>
+    </div>
+  </div>
+  <form *ngIf="affichenotes || largeurecran > 700" class = "inputs">
+    <input style="font-weight:bold" placeholder="Intitulé" [(ngModel)]="intitule" name="intitule">
+    <input placeholder="Date" [(ngModel)]="date" name="date">
+    <input placeholder="Montant" [(ngModel)]="montant" name="montant">
+    <input placeholder="Devise" [(ngModel)]="devise" name="devise">
+    <input placeholder="Commentaire" [(ngModel)]="commentaire" name="commentaire">
+    <div class="decision">
+      <button (click)="add()" class ="boutonsdetails" id="soumettre">Soumettre</button>
+    </div>
+  </form>
+</div>

@@ -1,5 +1,29 @@
+@media only screen and (max-width: 700px) {
+    #notes-de-frais{
+        width:98%;
+    }
+    #details{
+        width:98%;
+    }
+}
+@media only screen and (min-width: 700px) {
+    #notes-de-frais{
+        width:98%;
+    }
+    #details{
+        width:98%;
+    }
+    .inputs{
+        display:flex;
+        flex-direction:column;
+    }
+    input{
+        width:50%;
+        margin:9px 13px;
+    }
+}
 .notes {
-    margin: 0 0 2em 0;
+    margin: 0 0 0.5em 0;
     list-style-type: none;
     padding: 0;
 }
@@ -8,101 +32,123 @@
     position: relative;
     left: 0;
     margin: .5em;
-    margin-left:50px;
-    padding: .3em 0;
-    border-radius: 5px;
-    width:500px;
+    padding: 0 0;
+}
+#donnees:hover {
+    color: #607D8B;
+    left: .1em;
 }
 .selected {
     background-color: #CFD8DC !important;
     color: white;
 }
+.etat{
+    background-size:30px auto;
+    background-repeat: no-repeat;
+    width:40px;
+    height:30px;
+}
+#refusee{
+    background-image: url("../images/rejetee.png");
+    
+}
+#encours{
+    background-image: url("../images/encours.png");
+}
+#validee{
+    background-image: url("../images/validee.png");
+}
 .notes li.selected:hover {
     background-color: #BBD8DC !important;
     color: white;
-}
-.notes li:hover {
-    color: #607D8B;
-    background-color: black;
-    left: .1em;
 }
 .notes .text {
     position: relative;
     top: -3px;
 }
-.notes .badge {
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    height: 24px;
-    border-radius: 4px;
-    margin:0 2px 0 2px;
-  }
-.intitule{
-    border-left:1px solid rgb(195, 215, 224);
+.attributsnote{
+    border:1px solid rgb(195, 215, 224);
     padding-left:5px;
     height:35px;
-    width:120px;
     line-height:35px;
-    background-color: rgb(133, 163, 184);
-    border-radius: 4px 0 0 4px;
+    overflow-x: hidden;
 }
-.montant{
-    border-left:1px solid rgb(195, 215, 224);
-    padding-left:5px;
-    height:35px;
-    width:60px;
-    line-height:35px;
-    background-color: rgb(133, 163, 184);
+#emetteur{
+    width:20%;
 }
-.devise{
-    border-left:1px solid rgb(195, 215, 224);
-    padding-left:5px;
-    height:35px;
-    width:70px;
-    line-height:35px;
-    background-color: rgb(133, 163, 184);
+#intitule{
+    width:20%;
 }
-.date{
-    border-left:1px solid rgb(195, 215, 224);
-    padding-left:5px;
-    height:35px;
-    width:80px;
-    line-height:35px;
-    background-color: rgb(133, 163, 184);
-    border-radius: 0 4px 4px 0;
+#montant{
+    width:10%;
 }
-.commentaire{
-    font-size:30px;
+#devise{
+    width:20%;
 }
-.ligne{
+#date{
+    width:20%;
+}
+h3{
+    margin-bottom:2px;
+}
+.back{
+    background-image: url("../images/back.png");
+    background-repeat: no-repeat;
+    background-size:auto 40px;
+    width:40px;
+    height:40px;
+    margin-right:5px;
+}
+.decision{
     display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction:row;
+    justify-content: space-around;
+    margin:10px 0;
 }
-.ligne:hover{
-    left:0.1em;
+#valider{
+    background-image: url("../images/validee.png");
+    color: rgb(73,145,49);
+    border: 2px solid rgb(73,145,49);
 }
-.legende{
+#refuser{
+    background-image: url("../images/rejetee.png");
+    color: rgb(167,27,27);
+    border: 2px solid rgb(167,27,27);
+}
+#maj{
+    background-image: url("../images/maj.png");
+    color: rgb(23, 103, 192);
+    border: 2px solid rgb(23, 103, 192);
+}
+#supprimer{
+    background-image: url("../images/supprimer.png");
+    color: rgb(167,27,27);
+    border: 2px solid rgb(167,27,27);
+}
+#soumettre{
+    background-image: url("../images/submit.png");
+    color: rgb(23, 103, 192);
+    border: 2px solid rgb(23, 103, 192);
+}
+.boutons{
     display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height:20px;
+    flex-direction:row;
+    justify-content: flex-end;
 }
-button {
-    background-color: #eee;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    cursor: hand;
-    font-family: Arial;
+#donnees{
+    width:100%;
+    margin-right:2%;
+    display:flex;
+    flex-direction:row;
 }
-button.delete
-{
-    background-color: rgb(136, 12, 12) !important;
-    color: white;
-    margin:0 2px 0 2px;
+.rechercheavancee{
+    width:100%;
+    padding-bottom:10px;
+    border-bottom:1px  rgb(165, 165, 165) solid;
+    margin-bottom:10px;
+}
+.nouvellenote{
+    width:96%;
+    text-align: center;
+    border:1px solid rgb(195, 215, 224);
 }
